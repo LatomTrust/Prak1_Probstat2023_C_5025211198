@@ -1,0 +1,19 @@
+# a. Fungsi probabilitas dari distribusi Chi-Square dengan df=10
+x <- seq(0, 30, length=1000)
+df <- 10
+y <- dchisq(x, df)
+plot(x, y, type="l", xlab="x", ylab="f(x)", main="Fungsi Probabilitas Chi-Square")
+
+# b. Histogram dari distribusi Chi-Square dengan 500 data acak
+set.seed(123)
+n <- 500
+df <- 10
+x <- rchisq(n, df)
+hist(x, breaks=20, main="Histogram Chi-Square dengan 500 Data Acak")
+
+# c. Nilai rataan (μ) dan varian (σ²) dari distribusi Chi-Square dengan df=10
+df <- 10
+mu <- df
+sigma2 <- 2*df
+cat("Nilai rataan (mu) dari distribusi Chi-Square adalah", mu, "\n")
+cat("Nilai varian (sigma^2) dari distribusi Chi-Square adalah", sigma2, "\n")
