@@ -1,0 +1,9 @@
+pt(-2.34, df=6)
+1 - pt(1.34, df=6)
+pt(-1.23, df=3) + (1 - pt(1.23, df=3))
+diff(pt(c(-0.94, 0.94), df=14))
+qt(0.0333, df=5, lower.tail=TRUE)
+qt(0.125, df=25, lower.tail=FALSE)
+abs(qt(0.75/2, df=11))
+t_val <- qt(0.01665, 23)
+t_score <- -1 * t_val
