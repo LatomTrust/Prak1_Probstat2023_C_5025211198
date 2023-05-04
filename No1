@@ -1,1 +1,11 @@
 
+n <- 10
+p <- 0.488
+dbinom(3, size = n, prob = p)
+pbinom(2, size = n, prob = p)
+1 - pbinom(2, size = n, prob = p)
+mean_laki_laki <- n * p
+sd_laki_laki <- sqrt(n * p * (1 - p))
+hist(rbinom(1000, size = n, prob = p), main = "Pendistribusian Banyak Bayi Laki-laki", xlab = "Banyak Bayi Laki-laki", ylab = "Frekuensi")
+
+
