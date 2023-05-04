@@ -1,0 +1,38 @@
+# a. Pendistribusian banyak kematian karena kanker tulang
+lambda <- 1.8
+distribusi_kematian <- "Poisson"
+
+# b. Probabilitas 4 kematian akibat kanker tulang
+p_empat_kematian <- dpois(4, lambda)
+if(p_empat_kematian < 0.05){
+  print("Peristiwa yang tidak biasa")
+} else {
+  print("Peristiwa yang biasa")
+}
+
+# c. Peluang paling banyak 4 kematian akibat kanker tulang
+p_kurang_dari_empat <- ppois(4, lambda)
+
+# d. Peluang lebih dari 4 kematian akibat kanker tulang
+p_lebih_dari_empat <- 1 - p_kurang_dari_empat
+
+# e. Nilai harapan dan simpangan baku
+mean_kematian <- lambda
+sd_kematian <- sqrt(lambda)
+
+# f. Histogram distribusi banyak kematian akibat kanker tulang
+hist(rpois(10000, lambda), col = "blue", main = "Distribusi Banyak Kematian Akibat Kanker Tulang", xlab = "Banyak Kematian")
+
+# g. Simulasi untuk memeriksa hasil sebelumnya
+set.seed(123)
+n_simulasi <- 10000
+kematian_simulasi <- rpois(n_simulasi, lambda)
+p_lebih_dari_empat_simulasi <- sum(kematian_simulasi > 4) / n_simulasi
+p_kurang_dari_empat_simulasi <- sum(kematian_simulasi <= 4) / n_simulasi
+
+# h. Kesimpulan berdasarkan simulasi
+if(p_lebih_dari_empat_simulasi > p_lebih_dari_empat){
+  print("Hasil simulasi menunjukkan peluang lebih dari 4 kematian akibat kanker tulang lebih besar daripada hasil perhitungan sebelumnya.")
+} else {
+  print("Hasil simulasi menunjukkan peluang lebih dari 4 kematian akibat kanker tulang lebih kecil daripada hasil perhitungan sebelumnya.")
+}
