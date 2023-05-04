@@ -1,0 +1,26 @@
+set.seed(123)
+n <- 100
+mean <- 45
+sd <- 5
+samp_data <- rnorm(n, mean, sd)
+
+x1 <- floor(mean)
+x2 <- ceiling(mean)
+prob <- pnorm(x2, mean, sd) - pnorm(x1, mean, sd)
+
+z_score_x1 <- (x1 - mean) / sd
+z_score_x2 <- (x2 - mean) / sd
+
+cat("Fungsi probabilitas dari distribusi Normal P(X1 ≤ x ≤ X2) =", prob, "\n")
+cat("Z-score x1 =", z_score_x1, "\n")
+cat("Z-score x2 =", z_score_x2, "\n")
+
+plot(samp_data, type = "l", col = "red", main = "Data Bangkitan Acak Distribusi Normal",
+xlab = "Nomor Sampel", ylab = "Nilai")
+
+hist(samp_data, breaks = 50, col = "lightblue", main = "Histogram Distribusi Normal",
+xlab = "Interval", ylab = "Frekuensi")
+
+var_data <- var(samp_data)
+
+cat("Varian data bangkitan acak distribusi Normal =", var_data, "\n")
